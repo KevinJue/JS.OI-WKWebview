@@ -14,11 +14,11 @@
 		<string>github.com:KevinJue/JSWebView.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>js.oi/js.oi.xcodeproj</string>
+	<string>js.oi.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>DF3B520AD722AF67040084CFAE7E93FAEA14D777</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:KevinJue/JSWebView.git</string>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>DF3B520AD722AF67040084CFAE7E93FAEA14D777</string>
 			<key>IDESourceControlWCCName</key>
-			<string>JSWebView</string>
+			<string>js.oi</string>
 		</dict>
 	</array>
 </dict>

@@ -13,6 +13,8 @@
 		0AA07D481A9A70A800C6669C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA07D471A9A70A800C6669C /* Images.xcassets */; };
 		0AA07D4B1A9A70A800C6669C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA07D491A9A70A800C6669C /* LaunchScreen.xib */; };
 		0AA07D571A9A70A800C6669C /* js_oiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA07D561A9A70A800C6669C /* js_oiTests.swift */; };
+		0AB072621A9A74D400A8DEC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB072611A9A74D400A8DEC4 /* Foundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		0AB072641A9A74FA00A8DEC4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB072631A9A74FA00A8DEC4 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		0AA07D501A9A70A800C6669C /* js.oiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = js.oiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA07D551A9A70A800C6669C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA07D561A9A70A800C6669C /* js_oiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = js_oiTests.swift; sourceTree = "<group>"; };
+		0AB072611A9A74D400A8DEC4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0AB072631A9A74FA00A8DEC4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB072641A9A74FA00A8DEC4 /* WebKit.framework in Frameworks */,
+				0AB072621A9A74D400A8DEC4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +83,9 @@
 		0AA07D3D1A9A70A800C6669C /* js.oi */ = {
 			isa = PBXGroup;
 			children = (
+				0AB072601A9A730700A8DEC4 /* Librairies */,
+				0AB0725F1A9A72E900A8DEC4 /* Class */,
+				0AB0725E1A9A72D000A8DEC4 /* Entity */,
 				0AA07D401A9A70A800C6669C /* AppDelegate.swift */,
 				0AA07D421A9A70A800C6669C /* ViewController.swift */,
 				0AA07D441A9A70A800C6669C /* Main.storyboard */,
@@ -110,6 +119,29 @@
 				0AA07D551A9A70A800C6669C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0AB0725E1A9A72D000A8DEC4 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		0AB0725F1A9A72E900A8DEC4 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+		0AB072601A9A730700A8DEC4 /* Librairies */ = {
+			isa = PBXGroup;
+			children = (
+				0AB072631A9A74FA00A8DEC4 /* WebKit.framework */,
+				0AB072611A9A74D400A8DEC4 /* Foundation.framework */,
+			);
+			name = Librairies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +439,7 @@
 				0AA07D5C1A9A70A800C6669C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AA07D5D1A9A70A800C6669C /* Build configuration list for PBXNativeTarget "js.oiTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +448,7 @@
 				0AA07D5F1A9A70A800C6669C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
