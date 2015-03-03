@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIWebViewDelegate, WKNavigationDelegate,
             self.view.addSubview(self.webView as UIWebView)
         }
         
-        self.webView?.loadRequestFromString("http://myqaa.com/")
+        self.webView?.loadRequestFromString("https://github.com/KevinJue/JS.OI-WKWebview/blob/master/README.md")
     }
     
     override func didReceiveMemoryWarning() {
