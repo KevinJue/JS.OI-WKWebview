@@ -8,6 +8,7 @@
 
 import UIKit
 import SystemConfiguration
+import CoreTelephony
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,10 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        var userConnected = true
         if(!isConnectedToNetwork()){
-            
+            userConnected = false
         }
-
+        NSUserDefaults.standardUserDefaults().setObject(userConnected, forKey:"isConnected")
+        NSUserDefaults.standardUserDefaults().synchronize()
         // Override point for customization after application launch.
         return true
     }
@@ -66,13 +69,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let isReachable = (flags & UInt32(kSCNetworkFlagsReachable)) != 0
         let isWWAN = (flags & UInt32(kSCNetworkReachabilityFlagsIsWWAN)) != 0
         
-        if(isReachable && isWWAN){
+        if(isReachable || isWWAN){
+            // Have connection
+            if (isWWAN){
+                // Setup the Network Info and create a CTCarrier object
+                var networkInfo = CTTelephonyNetworkInfo()
+                var carrier = networkInfo.subscriberCellularProvider
+                
+                // Get carrier name
+                var carrierName = carrier.carrierName
+            }
+            
             return true
         }
-        if(isReachable && !isWWAN){
-            return true
-        }
-        
         return false;
     }
 
