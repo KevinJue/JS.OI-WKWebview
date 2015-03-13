@@ -9,7 +9,7 @@ JS.OI is a personnal project currently under development in spare time. it will 
   
 <br/><br/>
 
-## Getting started
+<!-- ## Getting started
 
 The simplest usable JS.IO app use pod components. 
 We do however recommend reading the rest of the getting started guide below to get acquainted with the general workflow.
@@ -23,4 +23,4 @@ We do however recommend reading the rest of the getting started guide below to g
 
 1. Run `Pod install` to install dependencies.
 2. open js.oi.xcworkspace
-3. Run your application in xcode.
+3. Run your application in xcode. -->
