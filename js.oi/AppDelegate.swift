@@ -19,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var userConnected = true
+        // test if user is connected
         if(!isConnectedToNetwork()){
             userConnected = false
         }
         NSUserDefaults.standardUserDefaults().setObject(userConnected, forKey:"isConnected")
         NSUserDefaults.standardUserDefaults().synchronize()
-        // Override point for customization after application launch.
         return true
     }
 

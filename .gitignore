@@ -1,2 +1,4 @@
 .DS_Store
 identity
+Podfile.lock
+Pods
