@@ -11,8 +11,10 @@ import WebKit
 
 class ViewController: UIViewController, UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate {
     
-    var webView: WebViewClass?
+    private let singleton = Singleton.sharedInstance
     
+    var webView: WebViewClass?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
