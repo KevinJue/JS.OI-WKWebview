@@ -2,12 +2,17 @@
 
 <img src="https://cloud.githubusercontent.com/assets/1983788/6320662/2f1143a6-bae4-11e4-8265-79f70bbe7002.png" width="250px"align="right">
 
-JS.OI is a Web Application using swift and WKWebView including interaction/communication between JavaScript and native iOS. 
-It works great under iOS 8 by dint of fallback with UIWebview
+This is an skeleton Xcode project using WKWebView in iOS 8 including interaction/communication between JavaScript and native iOS with a UIWebView fallback for earlier versions of iOS. 
+Here we have a protocol that unifies the functionality we'd like to have in a WebView, design pattern and some useful functionnality to start a project.
+Divided in two class (WKWebView / UiWebView), these are used in the ViewController viewDidLoad method to create a web view.
 
-JS.OI is a personnal project currently under development in spare time. it will include features in future. Dont be shy and share idea.  
-  
-<br/><br/>
+Note: JS.OI is a personnal project currently under development in spare time. it will include features in future. Dont be shy and share idea.
+
+<br/>
+
+## Description
+- A browser-like view controller to support web pages navigation in your Swift app.
+- Singleton implementation.
 
 <!-- ## Getting started
 
