@@ -27,13 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Push notification configuration
-        if ((launchOptions) != nil){
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
             application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes:
                 UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound,
                 categories: nil)
             )
             application.registerForRemoteNotifications()
-            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+            if  let urlRedirectionForWebView = remoteNotification["url"] as? String {
+                NSUserDefaults.standardUserDefaults().setObject(urlRedirectionForWebView, forKey:"webViewUrl")
+            }
         }
         
         NSUserDefaults.standardUserDefaults().setObject(userConnected, forKey:"isConnected")
@@ -53,8 +56,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func  application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        var state = application.applicationState
+        let state : UIApplicationState = UIApplication.sharedApplication().applicationState;
+        if (state != UIApplicationState.Active) {
+            // Application receive push notification in background
+            // path to a redirection of webview must be outside apn object like this: 
+            // {
+            //  "aps": {
+            //      "alert": "Hello, world!",
+            //      "sound": "default"
+            //  }
+            //  "url": "https:// ..."
+            // }
+            if  let urlRedirectionForWebView = userInfo["url"] as? String {
+                NSUserDefaults.standardUserDefaults().setObject(urlRedirectionForWebView, forKey:"webViewUrl")
+            }
+        } else {
+            // Application receive push notification in foreground
+        }
+        NSUserDefaults.standardUserDefaults().synchronize()
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
