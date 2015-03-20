@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Push notification configuration
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
+            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
             application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes:
                 UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound,
                 categories: nil)
@@ -56,8 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func  application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        let state : UIApplicationState = UIApplication.sharedApplication().applicationState;
-        if (state != UIApplicationState.Active) {
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        if (UIApplication.sharedApplication().applicationState != UIApplicationState.Active) {
             // Application receive push notification in background
             // path to a redirection of webview must be outside apn object like this: 
             // {
@@ -69,12 +69,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // }
             if  let urlRedirectionForWebView = userInfo["url"] as? String {
                 NSUserDefaults.standardUserDefaults().setObject(urlRedirectionForWebView, forKey:"webViewUrl")
+                NSNotificationCenter.defaultCenter().postNotificationName("updateWebviewFromNotificationUrl", object: nil)
             }
         } else {
             // Application receive push notification in foreground
         }
         NSUserDefaults.standardUserDefaults().synchronize()
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
 
     }
 
