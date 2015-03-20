@@ -19,14 +19,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var helper: WebViewClass?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    
+        // Test user network connection
         var userConnected = true
-        // test if user is connected
         if(!isConnectedToNetwork()){
             userConnected = false
         }
+        
+        // Push notification configuration
+        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
+            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes:
+                UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound,
+                categories: nil)
+            )
+            application.registerForRemoteNotifications()
+            if  let urlRedirectionForWebView = remoteNotification["url"] as? String {
+                NSUserDefaults.standardUserDefaults().setObject(urlRedirectionForWebView, forKey:"webViewUrl")
+            }
+        }
+        
         NSUserDefaults.standardUserDefaults().setObject(userConnected, forKey:"isConnected")
         NSUserDefaults.standardUserDefaults().synchronize()
         return true
+    }
+    
+    func application( application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData! ) {
+        // Parse token to retrieve the string value
+        var deviceTokenString: String = (deviceToken.description as NSString)
+            .stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString:"<>"))
+            .stringByReplacingOccurrencesOfString(" ",withString:"") as String
+        }
+    
+    func application( application: UIApplication!, didFailToRegisterForRemoteNotificationsWithError error: NSError! ) {
+            // Do nothink because user refuse to accepte push notification
+    }
+    
+    func  application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        if (UIApplication.sharedApplication().applicationState != UIApplicationState.Active) {
+            // Application receive push notification in background
+            // path to a redirection of webview must be outside apn object like this: 
+            // {
+            //  "aps": {
+            //      "alert": "Hello, world!",
+            //      "sound": "default"
+            //  }
+            //  "url": "https:// ..."
+            // }
+            if  let urlRedirectionForWebView = userInfo["url"] as? String {
+                NSUserDefaults.standardUserDefaults().setObject(urlRedirectionForWebView, forKey:"webViewUrl")
+                NSNotificationCenter.defaultCenter().postNotificationName("updateWebviewFromNotificationUrl", object: nil)
+            }
+        } else {
+            // Application receive push notification in foreground
+        }
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -50,6 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
     
     // MARK: Connectivity
     func isConnectedToNetwork() -> Bool {
