@@ -11,7 +11,6 @@
 		0AA07D431A9A70A800C6669C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA07D421A9A70A800C6669C /* ViewController.swift */; };
 		0AA07D461A9A70A800C6669C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA07D441A9A70A800C6669C /* Main.storyboard */; };
 		0AA07D481A9A70A800C6669C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA07D471A9A70A800C6669C /* Images.xcassets */; };
-		0AA07D4B1A9A70A800C6669C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA07D491A9A70A800C6669C /* LaunchScreen.xib */; };
 		0AA07D571A9A70A800C6669C /* js_oiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA07D561A9A70A800C6669C /* js_oiTests.swift */; };
 		0AB072621A9A74D400A8DEC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB072611A9A74D400A8DEC4 /* Foundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		0AB072641A9A74FA00A8DEC4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB072631A9A74FA00A8DEC4 /* WebKit.framework */; };
@@ -22,6 +21,8 @@
 		0AB0726C1A9A75E200A8DEC4 /* WebViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0726B1A9A75E200A8DEC4 /* WebViewClass.swift */; };
 		0AB0726D1A9A75E200A8DEC4 /* WebViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0726B1A9A75E200A8DEC4 /* WebViewClass.swift */; };
 		0AB0726E1A9A76E200A8DEC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA07D421A9A70A800C6669C /* ViewController.swift */; };
+		0ADC083F1AB42D6A00E658DC /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC083E1AB42D6A00E658DC /* Singleton.swift */; };
+		0ADC08401AB42D6A00E658DC /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC083E1AB42D6A00E658DC /* Singleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,6 @@
 		0AA07D421A9A70A800C6669C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0AA07D451A9A70A800C6669C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AA07D471A9A70A800C6669C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		0AA07D4A1A9A70A800C6669C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0AA07D501A9A70A800C6669C /* js.oiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = js.oiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA07D551A9A70A800C6669C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA07D561A9A70A800C6669C /* js_oiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = js_oiTests.swift; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		0AB072651A9A75D600A8DEC4 /* UIWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWebView.swift; path = Entity/UIWebView.swift; sourceTree = "<group>"; };
 		0AB072661A9A75D600A8DEC4 /* WKWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WKWebView.swift; path = Entity/WKWebView.swift; sourceTree = "<group>"; };
 		0AB0726B1A9A75E200A8DEC4 /* WebViewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewClass.swift; path = Class/WebViewClass.swift; sourceTree = "<group>"; };
+		0ADC083E1AB42D6A00E658DC /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Singleton.swift; path = "Design patterns/Singleton.swift"; sourceTree = "<group>"; };
+		95970DF4308057E5EA81736A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				0AA07D3D1A9A70A800C6669C /* js.oi */,
 				0AA07D531A9A70A800C6669C /* js.oiTests */,
 				0AA07D3C1A9A70A800C6669C /* Products */,
+				777A69C7F8491D41487B7D34 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,15 +96,15 @@
 		0AA07D3D1A9A70A800C6669C /* js.oi */ = {
 			isa = PBXGroup;
 			children = (
-				0AB072601A9A730700A8DEC4 /* Librairies */,
 				0AB0725F1A9A72E900A8DEC4 /* Class */,
+				0AD71ED81AB34C2F006AA6DB /* Design patterns */,
 				0AB0725E1A9A72D000A8DEC4 /* Entity */,
+				0AB072601A9A730700A8DEC4 /* Librairies */,
+				0AA07D3E1A9A70A800C6669C /* Supporting Files */,
 				0AA07D401A9A70A800C6669C /* AppDelegate.swift */,
 				0AA07D421A9A70A800C6669C /* ViewController.swift */,
 				0AA07D441A9A70A800C6669C /* Main.storyboard */,
 				0AA07D471A9A70A800C6669C /* Images.xcassets */,
-				0AA07D491A9A70A800C6669C /* LaunchScreen.xib */,
-				0AA07D3E1A9A70A800C6669C /* Supporting Files */,
 			);
 			path = js.oi;
 			sourceTree = "<group>";
@@ -155,6 +158,22 @@
 				0AB072611A9A74D400A8DEC4 /* Foundation.framework */,
 			);
 			name = Librairies;
+			sourceTree = "<group>";
+		};
+		0AD71ED81AB34C2F006AA6DB /* Design patterns */ = {
+			isa = PBXGroup;
+			children = (
+				0ADC083E1AB42D6A00E658DC /* Singleton.swift */,
+			);
+			name = "Design patterns";
+			sourceTree = "<group>";
+		};
+		777A69C7F8491D41487B7D34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95970DF4308057E5EA81736A /* Pods.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +257,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA07D461A9A70A800C6669C /* Main.storyboard in Resources */,
-				0AA07D4B1A9A70A800C6669C /* LaunchScreen.xib in Resources */,
 				0AA07D481A9A70A800C6669C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA07D431A9A70A800C6669C /* ViewController.swift in Sources */,
+				0ADC083F1AB42D6A00E658DC /* Singleton.swift in Sources */,
 				0AB0726C1A9A75E200A8DEC4 /* WebViewClass.swift in Sources */,
 				0AB072691A9A75D600A8DEC4 /* WKWebView.swift in Sources */,
 				0AB072671A9A75D600A8DEC4 /* UIWebView.swift in Sources */,
@@ -270,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AB0726E1A9A76E200A8DEC4 /* ViewController.swift in Sources */,
+				0ADC08401AB42D6A00E658DC /* Singleton.swift in Sources */,
 				0AB0726D1A9A75E200A8DEC4 /* WebViewClass.swift in Sources */,
 				0AB0726A1A9A75D600A8DEC4 /* WKWebView.swift in Sources */,
 				0AA07D571A9A70A800C6669C /* js_oiTests.swift in Sources */,
@@ -294,14 +314,6 @@
 				0AA07D451A9A70A800C6669C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0AA07D491A9A70A800C6669C /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0AA07D4A1A9A70A800C6669C /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -341,7 +353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -378,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -390,9 +402,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = js.oi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -400,9 +416,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = js.oi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

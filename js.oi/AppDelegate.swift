@@ -7,16 +7,76 @@
 //
 
 import UIKit
+import SystemConfiguration
+import CoreTelephony
+
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var helper: WebViewClass?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+    
+        // Test user network connection
+        var userConnected = true
+        if(!isConnectedToNetwork()){
+            userConnected = false
+        }
+        
+        // Push notification configuration
+        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
+            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes:
+                UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound,
+                categories: nil)
+            )
+            application.registerForRemoteNotifications()
+            if  let urlRedirectionForWebView = remoteNotification["url"] as? String {
+                NSUserDefaults.standardUserDefaults().setObject(urlRedirectionForWebView, forKey:"webViewUrl")
+            }
+        }
+        
+        NSUserDefaults.standardUserDefaults().setObject(userConnected, forKey:"isConnected")
+        NSUserDefaults.standardUserDefaults().synchronize()
         return true
+    }
+    
+    func application( application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData! ) {
+        // Parse token to retrieve the string value
+        var deviceTokenString: String = (deviceToken.description as NSString)
+            .stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString:"<>"))
+            .stringByReplacingOccurrencesOfString(" ",withString:"") as String
+        }
+    
+    func application( application: UIApplication!, didFailToRegisterForRemoteNotificationsWithError error: NSError! ) {
+            // Do nothink because user refuse to accepte push notification
+    }
+    
+    func  application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        if (UIApplication.sharedApplication().applicationState != UIApplicationState.Active) {
+            // Application receive push notification in background
+            // path to a redirection of webview must be outside apn object like this: 
+            // {
+            //  "aps": {
+            //      "alert": "Hello, world!",
+            //      "sound": "default"
+            //  }
+            //  "url": "https:// ..."
+            // }
+            if  let urlRedirectionForWebView = userInfo["url"] as? String {
+                NSUserDefaults.standardUserDefaults().setObject(urlRedirectionForWebView, forKey:"webViewUrl")
+                NSNotificationCenter.defaultCenter().postNotificationName("updateWebviewFromNotificationUrl", object: nil)
+            }
+        } else {
+            // Application receive push notification in foreground
+        }
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -39,6 +99,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    
+    // MARK: Connectivity
+    func isConnectedToNetwork() -> Bool {
+        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0)).takeRetainedValue()
+        }
+        
+        var flags: SCNetworkReachabilityFlags = 0
+        if SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) == 0 {
+            return false;
+        }
+        
+        let isReachable = (flags & UInt32(kSCNetworkFlagsReachable)) != 0
+        let isWWAN = (flags & UInt32(kSCNetworkReachabilityFlagsIsWWAN)) != 0
+        
+        if(isReachable || isWWAN){
+            // Have connection
+            if (isWWAN){
+                // Setup the Network Info and create a CTCarrier object
+                var networkInfo = CTTelephonyNetworkInfo()
+                var carrier = networkInfo.subscriberCellularProvider
+                
+                // Get carrier name
+                var carrierName = carrier.carrierName
+            }
+            
+            return true
+        }
+        return false;
     }
 
 

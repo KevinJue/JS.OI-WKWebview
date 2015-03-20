@@ -8,7 +8,7 @@
 import Foundation
 
 protocol WebViewClass: class {
-    
+
     func setDelegateViews(viewController: ViewController)
     
     var request: NSURLRequest? { get }
