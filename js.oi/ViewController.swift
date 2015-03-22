@@ -20,11 +20,11 @@ class ViewController: UIViewController, UIWebViewDelegate, WKNavigationDelegate,
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         addObserverInView()
+        displayNavigationController(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Check if WKWebView class
         if (NSClassFromString("WKWebView") != nil) {
             let w = WKWebView(delegateView: self)
@@ -43,7 +43,7 @@ class ViewController: UIViewController, UIWebViewDelegate, WKNavigationDelegate,
             self.webView?.loadRequestFromString(webViewUrl)
             NSUserDefaults.standardUserDefaults().removeObjectForKey("webViewUrl")
         } else {
-            self.webView?.loadRequestFromString("https://github.com/KevinJue/JS.OI-WKWebview/blob/master/README.md")
+            self.webView?.loadRequestFromString("https://app.myqaa.com")
         }
     }
     
@@ -51,11 +51,16 @@ class ViewController: UIViewController, UIWebViewDelegate, WKNavigationDelegate,
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Getter / Setter
+    func displayNavigationController(isHidden: Bool) {
+        self.navigationController?.setNavigationBarHidden(isHidden, animated: true);
+    }
+    
     // MARK: Notification center
     func addObserverInView(){
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "methodOfUpdateWebViewUrlFromNotification:",
+            selector:"methodOfUpdateWebViewUrlFromNotification:",
             name:"updateWebviewFromNotificationUrl",
             object: nil
         )

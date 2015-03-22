@@ -1,0 +1,12 @@
+## Customize the test machine
+machine:
+    timezone:
+        Europe/Paris
+    node:
+        version: 0.10.29
+
+deployment:
+  dev:
+    branch: dev
+    commands:
+      - ./scripts/test.sh
