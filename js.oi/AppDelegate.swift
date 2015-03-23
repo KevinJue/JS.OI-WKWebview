@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Push notification configuration
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
-            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
             application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes:
                 UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound,
                 categories: nil)
