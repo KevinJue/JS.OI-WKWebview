@@ -5,3 +5,18 @@ machine:
     environment:
         XCODE_SCHEME: js.oi
         XCODE_PROJECT: js.oi.xcodeproj
+dependencies:
+  pre:
+    - brew install xctool
+test:
+  override:
+    - xcodebuild
+        CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY=
+        PROVISIONING_PROFILE=
+        -sdk iphonesimulator
+        -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
+        -scheme "js.oi"
+        clean test |
+      tee $CIRCLE_ARTIFACTS/xcode_raw.log |
+      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
