@@ -13,6 +13,7 @@ Note: JS.OI is a personnal project currently under development in spare time. it
 ## Description
 - A browser-like view controller to support web pages navigation in your Swift app.
 - Singleton implementation.
+- Push notification with url support
 
 <!-- ## Getting started
 
