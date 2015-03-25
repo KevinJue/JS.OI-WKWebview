@@ -5,9 +5,6 @@ machine:
     environment:
         XCODE_SCHEME: js.oi
         XCODE_PROJECT: js.oi.xcodeproj
-dependencies:
-  pre:
-    - brew install xctool
 test:
   override:
     - xcodebuild
