@@ -1,4 +1,4 @@
-# JS OI 0.1.1 [![Circle CI](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev.svg?style=svg)](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev)
+# JS OI 0.1.1  [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/KevinJue/js.oi-wkwebview/trend.png)](https://bitdeli.com/free "Bitdeli Badge")  [![Circle CI](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev.svg?style=svg)](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev) 
 
 <img src="https://cloud.githubusercontent.com/assets/1983788/6320662/2f1143a6-bae4-11e4-8265-79f70bbe7002.png" width="250px"align="right">
 
