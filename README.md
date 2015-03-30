@@ -1,4 +1,4 @@
-# JS OI 0.1.1  [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/KevinJue/js.oi-wkwebview/trend.png)](https://bitdeli.com/free "Bitdeli Badge")  [![Circle CI](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev.svg?style=svg)](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev) 
+# JS OI 1.0.0  [![Circle CI](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev.svg?style=svg)](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev) 
 
 <img src="https://cloud.githubusercontent.com/assets/1983788/6320662/2f1143a6-bae4-11e4-8265-79f70bbe7002.png" width="250px"align="right">
 
@@ -15,18 +15,8 @@ Note: JS.OI is a personnal project currently under development in spare time. it
 - Singleton implementation.
 - Push notification with url support
 
-<!-- ## Getting started
+## Advantage
+- Unit test
+- Gitmodule instead of cocoapods
 
-The simplest usable JS.IO app use pod components. 
-We do however recommend reading the rest of the getting started guide below to get acquainted with the general workflow.
-
-#### Requirements
-
-1. open project in your terminal
-2. run `sudo gem install cocoapods` if needed
-
-#### Building JS.IO
-
-1. Run `Pod install` to install dependencies.
-2. open js.oi.xcworkspace
-3. Run your application in xcode. -->
+    
