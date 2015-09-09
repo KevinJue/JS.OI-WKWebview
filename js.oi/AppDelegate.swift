@@ -44,14 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application( application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData! ) {
+    func application( application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData ) {
         // Parse token to retrieve the string value
         var deviceTokenString: String = (deviceToken.description as NSString)
             .stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString:"<>"))
             .stringByReplacingOccurrencesOfString(" ",withString:"") as String
         }
     
-    func application( application: UIApplication!, didFailToRegisterForRemoteNotificationsWithError error: NSError! ) {
+    func application( application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError ) {
             // Do nothink because user refuse to accepte push notification
     }
     

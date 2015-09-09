@@ -30,13 +30,13 @@ class ViewController: UIViewController, UIWebViewDelegate, WKNavigationDelegate,
             let w = WKWebView(delegateView: self)
             w.frame = self.view.frame
             self.webView = w
-            self.view.addSubview(self.webView as WKWebView)
+            self.view.addSubview(self.webView as! WKWebView)
         } else {
             // fall back on UIWebView
             let w = UIWebView(delegateView: self)
             w.frame = self.view.frame
             self.webView = w
-            self.view.addSubview(self.webView as UIWebView)
+            self.view.addSubview(self.webView as! UIWebView)
         }
         
         if let webViewUrl = NSUserDefaults.standardUserDefaults().objectForKey("webViewUrl") as? String {
