@@ -25,11 +25,11 @@ extension UIWebView: WebViewClass {
         loadRequest(NSURLRequest(URL: NSURL(string: urlNameAsString)!))
     }
     
-    func URL() -> NSURL? {
+    func getUrl() -> NSURL? {
         return self.request?.URL
     }
     
-    func evaluateJavaScript(javascriptString: String!, completionHandler: (AnyObject, NSError) -> ()) {
+    func evaluateJavaScriptInWebView(javascriptString: String!, completionHandler: (AnyObject, NSError) -> ()) {
         // Have the WebView evaluate the javascript string
         var string = stringByEvaluatingJavaScriptFromString(javascriptString)
         

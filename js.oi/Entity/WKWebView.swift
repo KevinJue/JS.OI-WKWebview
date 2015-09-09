@@ -25,30 +25,26 @@ extension WKWebView: WebViewClass {
         }
     }
     
-    // A simple convenience initializer, this allows for WKWebView(delegateView:) initialization
     convenience init(delegateView: AnyObject) {
         self.init()
         self.UIDelegate = delegateView as? WKUIDelegate
         self.navigationDelegate = delegateView as? WKNavigationDelegate
     }
     
-    // We will need to set both the UIDelegate AND navigationDelegate in the case of WebKit
     func setDelegateViews(viewController: ViewController) {
         self.UIDelegate = viewController as WKUIDelegate
         self.navigationDelegate = viewController as WKNavigationDelegate
     }
-    
-    func URL() -> NSURL? {
-        return self.URL
+
+    func getUrl() -> NSURL? {
+        return self.request?.URL
     }
     
-    // A quick method for loading requests based on strings in a URL format
     func loadRequestFromString(urlNameAsString: String!) {
         self.loadRequest(NSURLRequest(URL: NSURL(string: urlNameAsString)!))
     }
     
-    // Pass this up the chain and let WebKit handle it
-    func evaluateJavaScript(javascriptString: String!, completionHandler: (AnyObject, NSError) -> ()) {
+    func evaluateJavaScriptInWebView(javascriptString: String!, completionHandler: (AnyObject, NSError) -> ()) {
         self.evaluateJavaScript(javascriptString, completionHandler: { (AnyObject, NSError) -> Void in
             
         })
