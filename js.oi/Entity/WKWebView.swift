@@ -21,7 +21,7 @@ extension WKWebView: WebViewClass {
             return objc_getAssociatedObject(self, associatedObjectKey()) as? NSURLRequest
         }
         set(newValue) {
-            objc_setAssociatedObject(self, associatedObjectKey(), newValue, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, associatedObjectKey(), newValue,objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -38,20 +38,13 @@ extension WKWebView: WebViewClass {
         self.navigationDelegate = viewController as WKNavigationDelegate
     }
     
-    func URL() -> NSURL? {
+    func GetURL() -> NSURL? {
         return self.URL
     }
     
     // A quick method for loading requests based on strings in a URL format
     func loadRequestFromString(urlNameAsString: String!) {
         self.loadRequest(NSURLRequest(URL: NSURL(string: urlNameAsString)!))
-    }
-    
-    // Pass this up the chain and let WebKit handle it
-    func evaluateJavaScript(javascriptString: String!, completionHandler: (AnyObject, NSError) -> ()) {
-        self.evaluateJavaScript(javascriptString, completionHandler: { (AnyObject, NSError) -> Void in
-            
-        })
     }
 }
 

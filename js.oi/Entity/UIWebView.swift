@@ -25,16 +25,8 @@ extension UIWebView: WebViewClass {
         loadRequest(NSURLRequest(URL: NSURL(string: urlNameAsString)!))
     }
     
-    func URL() -> NSURL? {
+    func GetURL() -> NSURL? {
         return self.request?.URL
-    }
-    
-    func evaluateJavaScript(javascriptString: String!, completionHandler: (AnyObject, NSError) -> ()) {
-        // Have the WebView evaluate the javascript string
-        var string = stringByEvaluatingJavaScriptFromString(javascriptString)
-        
-        // Call the completion handler from there
-        completionHandler(string!, NSError())
     }
     
     func setScalesPageToFit(setPages: Bool!) {

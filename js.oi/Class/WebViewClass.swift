@@ -13,10 +13,7 @@ protocol WebViewClass: class {
     
     var request: NSURLRequest? { get }
     
-    func URL() -> NSURL?
+    func GetURL() -> NSURL?
     
     func loadRequestFromString(urlNameAsString: String!)
-    
-    
-    func evaluateJavaScript(javascriptString: String!, completionHandler: (AnyObject, NSError) -> ())
 }
