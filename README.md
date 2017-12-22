@@ -1,6 +1,7 @@
 # JS OI 1.0.0  [![Circle CI](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev.svg?style=svg)](https://circleci.com/gh/KevinJue/JS.OI-WKWebview/tree/dev) 
 
-<img src="https://cloud.githubusercontent.com/assets/1983788/6320662/2f1143a6-bae4-11e4-8265-79f70bbe7002.png" width="250px"align="right">
+![alt text](https://cloud.githubusercontent.com/assets/1983788/6320662/2f1143a6-bae4-11e4-8265-79f70bbe7002.png)
+
 
 This is an skeleton Xcode project using WKWebView in iOS 8 including interaction/communication between JavaScript and native iOS with a UIWebView fallback for earlier versions of iOS. 
 Here we have a protocol that unifies the functionality we'd like to have in a WebView, design pattern and some useful functionnality to start a project.
